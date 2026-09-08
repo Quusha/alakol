@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Как добраться до Алаколя — ALAKÓL</title>
+<meta name="description" content="Все способы добраться до озера Алаколь из Алматы, Астаны, Семея и Павлодара: автомобиль, поезд, автобус, самолёт. Интерактивная карта Казахстана.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="route">
+<div data-include="header"></div>
+
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow" data-i18n="nav_route">Как добраться</span>
+  <h1 data-i18n="route_h1">Как добраться до Алаколя</h1>
+  <p data-i18n="route_intro">Выберите, откуда едете — покажем все способы доезда с расстоянием и временем в пути.</p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <span class="mc-hint" style="color:var(--ink-2)" data-i18n="route_hint">Точка старта:</span>
+  <div class="origin-tabs" id="originTabs"></div>
+  <div class="routes" id="routeList"></div>
+  <p style="margin-top:22px;color:var(--ink-2);font-size:14.5px;max-width:60ch" data-i18n="route_note">Основной автомобильный въезд к берегу — через Ушарал и погранпост Бақты. Ближайшая железнодорожная магистраль — Астана–Достык.</p>
+</div></section>
+
+<!-- MAP -->
+<section class="mapsec" id="map"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow" data-i18n="map_eyebrow">Где это находится</span><h2 data-i18n="map_title">На стыке Абая и Жетісу</h2><p class="sub" style="color:#bfe0dd" data-i18n="map_sub">Нажимайте на города, дороги и погранпереходы — или постройте маршрут к Алаколю.</p></div>
+  <div class="mapwrap">
+    <div class="map-mount reveal"></div>
+    <div class="mapinfo reveal" id="mapInfo"></div>
+  </div>
+</div></section>
+
+<div data-include="footer"></div>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/map.js"></script>
+<script>
+(function(){
+  var ORIGINS=[
+    {id:"almaty", nm:{ru:"Алматы",kz:"Алматы"}},
+    {id:"astana", nm:{ru:"Астана",kz:"Астана"}},
+    {id:"semey",  nm:{ru:"Семей",kz:"Семей"}},
+    {id:"pavlodar",nm:{ru:"Павлодар",kz:"Павлодар"}}
+  ];
+  var ROUTES={
+    almaty:[
+      {ic:"🚗",t:{ru:"На автомобиле",kz:"Автокөлікпен"},m:{ru:"≈ 560 км · 7–8 ч · через Ушарал и Бақты",kz:"≈ 560 км · 7–8 сағ · Үшарал мен Бақты арқылы"}},
+      {ic:"🚌",t:{ru:"Автобус / трансфер",kz:"Автобус / трансфер"},m:{ru:"Прямые рейсы в сезон до Кабанбая и Акши",kz:"Маусымда Қабанбай мен Ақшиға тікелей рейстер"}},
+      {ic:"✈️",t:{ru:"Самолёт + трансфер",kz:"Ұшақ + трансфер"},m:{ru:"До ближайшего аэропорта, далее трансфер к берегу",kz:"Жақын әуежайға дейін, одан жағаға трансфер"}}
+    ],
+    astana:[
+      {ic:"🚆",t:{ru:"Поезд",kz:"Пойыз"},m:{ru:"Магистраль Астана–Достык до станции у озера",kz:"Астана–Достық магистралі көлге жақын станцияға дейін"}},
+      {ic:"🚗",t:{ru:"На автомобиле",kz:"Автокөлікпен"},m:{ru:"Через Павлодар и Семей на северо-восток",kz:"Павлодар мен Семей арқылы солтүстік-шығысқа"}},
+      {ic:"✈️",t:{ru:"Самолёт",kz:"Ұшақ"},m:{ru:"Через южные хабы и наземный трансфер",kz:"Оңтүстік хабтар және жер трансфері арқылы"}}
+    ],
+    semey:[
+      {ic:"🚗",t:{ru:"На автомобиле",kz:"Автокөлікпен"},m:{ru:"≈ 500 км · через Аягоз и Ушарал",kz:"≈ 500 км · Аягөз бен Үшарал арқылы"}},
+      {ic:"🚆",t:{ru:"Поезд",kz:"Пойыз"},m:{ru:"По ветке в сторону Достык до озера",kz:"Достық бағытындағы тармақпен көлге дейін"}}
+    ],
+    pavlodar:[
+      {ic:"🚗",t:{ru:"На автомобиле",kz:"Автокөлікпен"},m:{ru:"Павлодар → Семей → Алаколь, единый северный путь",kz:"Павлодар → Семей → Алакөл, біртұтас солтүстік жол"}},
+      {ic:"🚆",t:{ru:"Поезд",kz:"Пойыз"},m:{ru:"С пересадкой на магистраль Астана–Достык",kz:"Астана–Достық магистраліне ауысып"}}
+    ]
+  };
+  var cur="almaty";
+  var tabsEl=document.getElementById("originTabs"), listEl=document.getElementById("routeList");
+  function lang(){return window.I18N.getLang()}
+  function renderTabs(){
+    tabsEl.innerHTML=ORIGINS.map(function(o){return '<button data-o="'+o.id+'" class="'+(o.id===cur?"on":"")+'">'+(o.nm[lang()]||o.nm.ru)+'</button>'}).join("");
+    tabsEl.querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){cur=b.getAttribute("data-o");renderTabs();renderList()})});
+  }
+  function renderList(){
+    var L=lang();
+    listEl.innerHTML=(ROUTES[cur]||[]).map(function(r){
+      return '<div class="route reveal"><div class="rc">'+r.ic+'</div><div><div class="rt">'+(r.t[L]||r.t.ru)+'</div><div class="meta">'+(r.m[L]||r.m.ru)+'</div></div></div>';
+    }).join("");
+    listEl.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")});
+  }
+  function boot(){renderTabs();renderList();document.addEventListener("langchange",function(){renderTabs();renderList()})}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
+})();
+</script>
+</body>
+</html>

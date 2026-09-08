@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Почему Алаколь — ALAKÓL</title>
+<meta name="description" content="Шесть причин выбрать озеро Алаколь: лечебная вода, пляжи, доступность, цены, оздоровление и уникальная природа.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="why">
+<div data-include="header"></div>
+
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow" data-i18n="nav_why">Почему Алаколь</span>
+  <h1 data-i18n="why_h1">Почему именно Алаколь?</h1>
+  <p data-i18n="why_intro">Шесть причин выбрать разноцветное озеро. Нажмите на карточку, чтобы раскрыть аргумент.</p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="grid g3" id="whyGrid">
+    <article class="why w1 reveal"><div class="ic">💠</div><span class="plus">+</span><h3 data-i18n="why1_t">Лечебное «разноцветное» озеро</h3><div class="short" data-i18n="why1_s">Минералы, рапа и чёрная галька</div><div class="more" data-i18n="why1_m">Вода Алаколя богата минералами…</div></article>
+    <article class="why w2 reveal"><div class="ic">🏖</div><span class="plus">+</span><h3 data-i18n="why2_t">Пляжи без толп</h3><div class="short" data-i18n="why2_s">Сотни километров тёплого берега</div><div class="more" data-i18n="why2_m">Песчаные и галечные пляжи…</div></article>
+    <article class="why w3 reveal"><div class="ic">🧭</div><span class="plus">+</span><h3 data-i18n="why3_t">Легко добраться</h3><div class="short" data-i18n="why3_s">Из любой точки Казахстана</div><div class="more" data-i18n="why3_m">Прямые трассы…</div></article>
+    <article class="why w4 reveal"><div class="ic">💰</div><span class="plus">+</span><h3 data-i18n="why4_t">Цена ниже курортов</h3><div class="short" data-i18n="why4_s">От гостевых домов до отелей первой линии</div><div class="more" data-i18n="why4_m">Прозрачные цены…</div></article>
+    <article class="why w5 reveal"><div class="ic">💧</div><span class="plus">+</span><h3 data-i18n="why5_t">Оздоровление</h3><div class="short" data-i18n="why5_s">Природная бальнеология</div><div class="more" data-i18n="why5_m">Минеральная рапа…</div></article>
+    <article class="why w6 reveal"><div class="ic">🕊</div><span class="plus">+</span><h3 data-i18n="why6_t">Уникальная природа</h3><div class="short" data-i18n="why6_s">Заповедник и редкие виды</div><div class="more" data-i18n="why6_m">Алакол-Сасыккольская система озёр…</div></article>
+  </div>
+</div></section>
+
+<section class="ctasec"><div class="wrap reveal">
+  <h2 data-i18n="home_cta_title">Готовы открыть Алаколь этим летом?</h2>
+  <p data-i18n="home_cta_sub">Выберите зону берега, сравните варианты размещения и забронируйте место у воды.</p>
+  <a href="route.html" class="btn btn-dark" data-i18n="cta_plan">Спланировать поездку</a>
+</div></section>
+
+<div data-include="footer"></div>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  function bind(){document.querySelectorAll("#whyGrid .why").forEach(function(c){c.addEventListener("click",function(){c.classList.toggle("open")})})}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bind);else bind();
+})();
+</script>
+</body>
+</html>

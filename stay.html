@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Где остановиться на Алаколе — ALAKÓL</title>
+<meta name="description" content="Размещение на озере Алаколь: три зоны побережья, фильтры по рейтингу и цене, онлайн-бронирование отелей и гостевых домов.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="stay">
+<div data-include="header"></div>
+
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow" data-i18n="nav_stay">Где остановиться</span>
+  <h1 data-i18n="stay_h1">Где остановиться на Алаколе</h1>
+  <p data-i18n="stay_intro">Побережье делится на три зоны. Выберите зону у воды, отфильтруйте по рейтингу и цене — и бронируйте.</p>
+</div></section>
+
+<section class="sec staysec"><div class="wrap">
+  <div class="stay-grid">
+    <div class="beach reveal">
+      <div class="sandbar" data-i18n="beach_label">ПЛЯЖ · берег Алаколя</div>
+      <div class="strip z1 on" data-z="1"><span data-i18n="zone1">1-я линия</span><span class="cnt">3</span></div>
+      <div class="strip z2" data-z="2"><span data-i18n="zone2">Средняя зона</span><span class="cnt">2</span></div>
+      <div class="strip z3" data-z="3"><span data-i18n="zone3">Дальняя зона</span><span class="cnt">2</span></div>
+    </div>
+    <div class="stay-panel reveal">
+      <div class="zone-tabs">
+        <button class="on" data-z="1" data-i18n="zt1">1-я линия<br>у пляжа</button>
+        <button data-z="2" data-i18n="zt2">Средняя<br>зона</button>
+        <button data-z="3" data-i18n="zt3">Дальняя<br>зона</button>
+      </div>
+      <div class="filters">
+        <span class="f" data-i18n="f_rating">Рейтинг</span>
+        <span class="f" data-i18n="f_price">Цена</span>
+        <span class="f" data-i18n="f_family">Для семьи</span>
+        <span class="f" data-i18n="f_pool">Бассейн</span>
+      </div>
+      <div id="hotelList"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- BOOKING MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="grab"></div>
+    <div id="modalForm">
+      <h3 id="mHotel">—</h3>
+      <div class="mh-price" id="mPrice"></div>
+      <div class="field"><label data-i18n="m_dates">Даты заезда и выезда</label>
+        <div class="field row" style="margin-top:0"><div><input type="date" id="mIn"></div><div><input type="date" id="mOut"></div></div>
+      </div>
+      <div class="field"><label data-i18n="m_guests">Гости</label>
+        <select id="mGuests">
+          <option data-i18n="m_g1">1 гость</option>
+          <option data-i18n="m_g2" selected>2 гостя</option>
+          <option data-i18n="m_g3">3 гостя</option>
+          <option data-i18n="m_g4">4 гостя и больше</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" id="mConfirm" data-i18n="m_confirm">Забронировать</button>
+    </div>
+    <div id="modalDone" class="booked" style="display:none">
+      <div class="ok">✓</div>
+      <h3 data-i18n="m_ok_t">Бронь подтверждена</h3>
+      <p id="mOkText"></p>
+      <button class="btn btn-dark" id="mClose" style="margin-top:18px" data-i18n="m_close">Готово</button>
+    </div>
+  </div>
+</div>
+
+<div data-include="footer"></div>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/stay.js"></script>
+</body>
+</html>

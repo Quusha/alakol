@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ландшафт Алаколя — ALAKÓL</title>
+<meta name="description" content="Четыре взгляда на регион Алаколя: исторический, природный, культурный и научный ландшафт с погружением вглубь.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="explore">
+<div data-include="header"></div>
+
+<section class="page-hero"><div class="wrap">
+  <span class="eyebrow" data-i18n="nav_explore">Ландшафт</span>
+  <h1 data-i18n="ex_h1">Ландшафт Алаколя</h1>
+  <p data-i18n="ex_intro">Четыре взгляда на территорию: исторический, природный, культурный и научный — с погружением вглубь.</p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="land-tabs" id="landTabs">
+    <button class="on" data-k="hist"><span class="em">🏛</span><span data-i18n="ex_hist">Исторический</span></button>
+    <button data-k="nat"><span class="em">🌿</span><span data-i18n="ex_nat">Природный</span></button>
+    <button data-k="cult"><span class="em">🎭</span><span data-i18n="ex_cult">Культурный</span></button>
+    <button data-k="sci"><span class="em">🔬</span><span data-i18n="ex_sci">Научный</span></button>
+  </div>
+  <div class="land-body reveal" id="landBody"></div>
+</div></section>
+
+<div data-include="footer"></div>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+(function(){
+  var LAND={
+    hist:{ru:{t:"Исторический ландшафт",i:"Земля на древних караванных путях: следы кочевой культуры, приграничная история и память места.",s:[["Житейские мудрости","Пословицы, приметы и уклад кочевой жизни, связанные со степью, водой и дорогой."],["Былины, сказки и легенды","Предания о «разноцветном» озере, его целебной силе и духах здешних мест."]]},
+          kz:{t:"Тарихи ландшафт",i:"Ежелгі керуен жолдарындағы жер: көшпелі мәдениет ізі, шекара тарихы және жер жады.",s:[["Тұрмыстық даналық","Дала, су және жолмен байланысты мақал-мәтелдер, ырымдар мен көшпелі тұрмыс салты."],["Жырлар, ертегілер мен аңыздар","«Түрлі-түсті» көл, оның шипалы күші мен осы жердің рухтары туралы аңыздар."]]}},
+    nat:{ru:{t:"Природный ландшафт",i:"Озёрная система на стыке степи, полупустыни и гор: солёная вода, пляжи и миграции птиц.",s:[["Вода и берега","Минеральная рапа, чёрная целебная галька и десятки оттенков воды вдоль берега."],["Флора и фауна","Реликтовая чайка, водно-болотные угодья и заповедная Алакол-Сасыккольская система."]]},
+         kz:{t:"Табиғи ландшафт",i:"Дала, шөлейт және таулар түйісіндегі көлдер жүйесі: тұзды су, жағажай және құс қоныстары.",s:[["Су мен жағалар","Минералды тұзды су, қара шипалы малта және жаға бойындағы судың ондаған реңкі."],["Өсімдіктер мен жануарлар","Реликт шағаласы, суда-батпақты алқаптар және қорық Алакөл-Сасықкөл жүйесі."]]}},
+    cult:{ru:{t:"Культурный ландшафт",i:"Живые традиции, кухня и гостеприимство приозёрных сёл — Кабанбай, Акши и других.",s:[["Традиции и ремёсла","Обычаи гостеприимства, музыка и ремёсла, которые формируют характер побережья."],["Кухня и сезоны","Степная и рыбная кухня, сезонные праздники и ритм жизни у воды."]]},
+          kz:{t:"Мәдени ландшафт",i:"Көл маңындағы ауылдардың — Қабанбай, Ақши және басқаларының — тірі дәстүрі, асханасы мен қонақжайлылығы.",s:[["Дәстүр мен қолөнер","Қонақжайлылық салты, музыка және жаға сипатын қалыптастыратын қолөнер."],["Асхана мен маусымдар","Дала мен балық асханасы, маусымдық мерекелер және су жағасындағы тұрмыс ырғағы."]]}},
+    sci:{ru:{t:"Научный ландшафт",i:"Территория интереса для гидрологии, орнитологии, бальнеологии и климатических исследований.",s:[["Гидрология и бальнеология","Изучение минерального состава воды, рапы и лечебных грязей озера."],["Экология и климат","Мониторинг экосистемы, миграций птиц и микроклимата приозёрной зоны."]]},
+         kz:{t:"Ғылыми ландшафт",i:"Гидрология, орнитология, бальнеология және климат зерттеулері үшін қызық аумақ.",s:[["Гидрология мен бальнеология","Судың, тұзды судың және емдік батпақтың минералды құрамын зерттеу."],["Экология мен климат","Экожүйені, құс қоныстарын және көл маңы микроклиматын бақылау."]]}}
+  };
+  var cur="hist", body=document.getElementById("landBody"), tabs=document.getElementById("landTabs");
+  function lang(){return window.I18N.getLang()}
+  function render(){
+    var d=(LAND[cur][lang()]||LAND[cur].ru);
+    body.innerHTML='<h3>'+d.t+'</h3><p>'+d.i+'</p><div class="subcats">'+
+      d.s.map(function(x){return '<div class="subcat"><div class="st">'+x[0]+'</div><div class="sd">'+x[1]+'</div></div>'}).join("")+'</div>';
+    body.classList.add("in");
+  }
+  tabs.querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){
+    cur=b.getAttribute("data-k");
+    tabs.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});
+    render();
+  })});
+  function boot(){render();document.addEventListener("langchange",render)}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
+})();
+</script>
+</body>
+</html>

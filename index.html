@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ALAKÓL — туристическая платформа озера Алаколь</title>
+<meta name="description" content="Полноценная платформа по озеру Алаколь: почему стоит поехать, как добраться, где остановиться и что посмотреть. Интерактивная карта Казахстана, KZ/RU.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap&subset=cyrillic,cyrillic-ext,latin" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="home">
+
+<div data-include="header"></div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-scene" aria-hidden="true">
+    <div class="sky"></div>
+    <div class="stars"></div>
+    <div class="sunglow"></div>
+    <div class="sun"></div>
+    <svg class="mtn" viewBox="0 0 1440 220" preserveAspectRatio="none" style="height:190px">
+      <path d="M0 220 L0 130 L150 70 L320 138 L520 52 L720 128 L940 60 L1160 126 L1440 78 L1440 220 Z" fill="#0a4d54" opacity=".55"/>
+      <path d="M0 220 L0 160 L200 104 L430 168 L680 96 L900 162 L1140 110 L1440 158 L1440 220 Z" fill="#083f45" opacity=".8"/>
+    </svg>
+    <div class="water"><div class="sun-reflect"></div><div class="ripples"></div></div>
+    <svg class="pebbles" viewBox="0 0 1440 42" preserveAspectRatio="none"><g fill="#0d2226">
+      <ellipse cx="60" cy="32" rx="42" ry="13"/><ellipse cx="180" cy="36" rx="55" ry="15"/><ellipse cx="330" cy="31" rx="40" ry="12"/><ellipse cx="470" cy="37" rx="60" ry="14"/><ellipse cx="640" cy="32" rx="48" ry="13"/><ellipse cx="800" cy="36" rx="58" ry="15"/><ellipse cx="960" cy="31" rx="44" ry="12"/><ellipse cx="1120" cy="37" rx="62" ry="14"/><ellipse cx="1300" cy="33" rx="52" ry="13"/><ellipse cx="1420" cy="36" rx="46" ry="14"/>
+    </g></svg>
+    <div class="ambient"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%;height:60px"><path d="M0 40 C240 78 480 8 720 34 C960 60 1200 6 1440 36 L1440 70 L0 70 Z" fill="#FBF8F1"/></svg></div>
+  </div>
+  <div class="hero-in">
+    <span class="eyebrow" data-i18n="home_eyebrow">Абай · Жетісу · Восточный Казахстан</span>
+    <h1>ALAKÓL</h1>
+    <p class="lead" data-i18n="home_lead">Разноцветное озеро, которое стоит открыть</p>
+    <p class="desc" data-i18n="home_desc">Целебная чёрная галька, минеральная вода и сотни километров тёплых пляжей — в самом сердце страны, между Астаной и Алматы.</p>
+    <div class="hero-cta">
+      <a href="route.html" class="btn btn-primary" data-i18n="cta_plan">Спланировать поездку</a>
+      <a href="#map" class="btn btn-ghost" data-i18n="cta_map">Показать на карте</a>
+    </div>
+    <div class="planner">
+      <div><label for="travelDate" data-i18n="plan_when">Когда хотите поехать?</label><input type="date" id="travelDate"></div>
+      <div class="scene-state">
+        <span class="pchip" id="seasonChip"><span class="ico">🌊</span><span id="seasonName">Лето</span></span>
+        <span class="pchip" id="lightChip"><span class="ico" id="lightIco">☀️</span><span id="lightName">День</span></span>
+      </div>
+    </div>
+    <div class="chiprow">
+      <span class="chip">🐚 <b data-i18n="chip_black">Чёрная галька</b></span>
+      <span class="chip">💧 <span data-i18n="chip_mineral">Минеральная вода</span></span>
+      <span class="chip">🕊 <span data-i18n="chip_gull">Реликтовая чайка</span></span>
+      <span class="chip">🏖 <span data-i18n="chip_beach">Пляжи без толп</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<section class="stats"><div class="wrap"><div class="stats-in reveal">
+  <div class="stat"><div class="num" data-count="2650">2650</div><div class="lb" data-i18n="stat_area">км² — площадь озера</div></div>
+  <div class="stat"><div class="num" data-count="23" data-prefix="+" data-suffix="°C">+23°C</div><div class="lb" data-i18n="stat_temp">вода летом</div></div>
+  <div class="stat"><div class="num" data-count="100" data-prefix="≈" data-suffix=" км">≈100 км</div><div class="lb" data-i18n="stat_beach">пляжной линии</div></div>
+  <div class="stat"><div class="num" data-count="560" data-suffix=" км">560 км</div><div class="lb" data-i18n="stat_dist">от Алматы</div></div>
+</div></div></section>
+
+<!-- MAP -->
+<section class="mapsec" id="map"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow" data-i18n="map_eyebrow">Где это находится</span><h2 data-i18n="map_title">На стыке Абая и Жетісу</h2><p class="sub" style="color:#bfe0dd" data-i18n="map_sub">Нажимайте на города, дороги и погранпереходы — или постройте маршрут к Алаколю.</p></div>
+  <div class="mapwrap">
+    <div class="map-mount reveal"></div>
+    <div class="mapinfo reveal" id="mapInfo"></div>
+  </div>
+</div></section>
+
+<!-- QUICK LINKS -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow" data-i18n="quick_eyebrow">С чего начать</span><h2 data-i18n="quick_title">Спланируйте поездку за 4 шага</h2><p class="sub" data-i18n="quick_sub">Каждый раздел отвечает на один простой вопрос.</p></div>
+  <div class="grid g4" style="margin-top:26px">
+    <a class="card link reveal" href="why.html"><div class="ic">💠</div><h3 data-i18n="q_why_t">Почему Алаколь</h3><p data-i18n="q_why_d">Аргументы, ради которых стоит выбрать именно это озеро.</p><span class="go" data-i18n="more">Подробнее →</span></a>
+    <a class="card link reveal" href="route.html"><div class="ic">🧭</div><h3 data-i18n="q_route_t">Как добраться</h3><p data-i18n="q_route_d">Все способы доезда из любой точки Казахстана.</p><span class="go" data-i18n="more">Подробнее →</span></a>
+    <a class="card link reveal" href="stay.html"><div class="ic">🏖</div><h3 data-i18n="q_stay_t">Где остановиться</h3><p data-i18n="q_stay_d">Три зоны побережья, фильтры и бронирование.</p><span class="go" data-i18n="more">Подробнее →</span></a>
+    <a class="card link reveal" href="explore.html"><div class="ic">🗺</div><h3 data-i18n="q_explore_t">Ландшафт</h3><p data-i18n="q_explore_d">История, природа, культура и наука региона.</p><span class="go" data-i18n="more">Подробнее →</span></a>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="ctasec"><div class="wrap reveal">
+  <h2 data-i18n="home_cta_title">Готовы открыть Алаколь этим летом?</h2>
+  <p data-i18n="home_cta_sub">Выберите зону берега, сравните варианты размещения и забронируйте место у воды.</p>
+  <a href="stay.html" class="btn btn-dark" data-i18n="home_cta_btn">Подобрать размещение</a>
+</div></section>
+
+<div data-include="footer"></div>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/scene.js"></script>
+</body>
+</html>
